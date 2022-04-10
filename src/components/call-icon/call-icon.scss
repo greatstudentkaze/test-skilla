@@ -1,0 +1,11 @@
+@import "../../styles/variables";
+
+.call-icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+
+    &--missed {
+        fill: $red;
+    }
+}
