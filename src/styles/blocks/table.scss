@@ -1,0 +1,79 @@
+@import "../variables";
+@import "../mixins";
+
+.table {
+    $this: &;
+
+    width: 1440px;
+    padding-left: 40px;
+
+    font-size: 15px;
+    line-height: 1.4;
+    color: $color-text;
+
+    &__thead {
+        font-size: 14px;
+        line-height: 1;
+        color: $color-text-header;
+    }
+
+    &__row {
+        display: grid;
+        grid-template-columns: 24px 65px 100px 300px 1fr 90px;
+        align-items: center;
+        column-gap: 20px;
+        height: 65px;
+        padding-right: 40px;
+
+        & + & {
+            border-top: 1px solid $light-blue;
+        }
+
+        #{$this}__thead & {
+            border-bottom: 1px solid $light-blue;
+        }
+    }
+
+    &__cell {
+        &--right-aligned {
+            text-align: right;
+        }
+    }
+
+    &__sort-button {
+        $this: &;
+
+        @include reset-button;
+
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        &:enabled:hover,
+        &:enabled:focus-visible {
+            svg {
+                fill: $color-accent;
+            }
+        }
+
+        svg {
+            display: none;
+            flex-shrink: 0;
+
+            transition: fill 0.2s ease-in-out 0s;
+        }
+
+        &--asc,
+        &--desc {
+            svg {
+                display: block;
+            }
+        }
+
+        &--asc {
+            svg {
+                transform: scaleY(-1);
+            }
+        }
+    }
+}
