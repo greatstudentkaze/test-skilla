@@ -1,0 +1,14 @@
+@import "../../styles/variables";
+
+.caller {
+    display: flex;
+    flex-direction: column;
+
+    font-size: 15px;
+    line-height: 1.4;
+    color: $color-text;
+
+    &__company {
+        color: $color-text-secondary;
+    }
+}
